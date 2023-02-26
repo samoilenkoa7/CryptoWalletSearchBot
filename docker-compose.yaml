@@ -1,0 +1,21 @@
+version: "3"
+services:
+  #  bot:
+  #    build: ./tgbotbase
+  #    ports:
+  #      - "80:80"
+  #    depends_on:
+  #      - db
+  #    links:
+  #      - db
+  #    command: python3 bot.py
+  db:
+    image: postgres
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  pgdata: Null
